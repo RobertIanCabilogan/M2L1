@@ -13,10 +13,9 @@ const texLoader = new THREE.TextureLoader();
 const texture = texLoader.load('./Textures/pngfind.com-sprite-logo-png-905995.png');
 const geometry = new THREE.PlaneGeometry(2, 1);
 
-// Tint color (change to any color you want)
-const tintColor = new THREE.Color(0x00ffff); // Cyan
+const tintColor = new THREE.Color(0xFFFFFF);
 
-// ShaderMaterial to tint black text
+//had to use ai uuuuuuu ;-;
 const material = new THREE.ShaderMaterial({
   uniforms: {
     map: { value: texture },
@@ -49,12 +48,13 @@ scene.add(plane);
 
 camera.position.z = 5;
 let velocity = { x: 0.05, y: 0.05 };
+const speed = 0.03; 
 function animate() {
 
   const boundX = 7; 
   const boundY = 4;
 
-  const speed = 0.03; 
+  
 
   plane.position.x += velocity.x;
   plane.position.y += velocity.y;
@@ -64,12 +64,16 @@ function animate() {
     velocity.x = dir.x;
     velocity.y = dir.y;
     plane.position.x = Math.max(-boundX, Math.min(boundX, plane.position.x));
+    material.uniforms.tint.value = getRandomColor();
+    plane.scale.multiplyScalar(0.8); 
   }
   if (plane.position.y > boundY || plane.position.y < -boundY) {
     let dir = randomDirection(speed);
     velocity.x = dir.x;
     velocity.y = dir.y;
     plane.position.y = Math.max(-boundY, Math.min(boundY, plane.position.y));
+    material.uniforms.tint.value = getRandomColor();
+    plane.scale.multiplyScalar(0.8); 
   }
   renderer.render(scene, camera);
 }
@@ -80,4 +84,8 @@ function randomDirection(speed) {
   let y = Math.sin(angle);
   let length = Math.sqrt(x * x + y * y);
   return { x: (x / length) * speed, y: (y / length) * speed };
+}
+
+function getRandomColor() {
+  return new THREE.Color(Math.random(), Math.random(), Math.random());
 }
