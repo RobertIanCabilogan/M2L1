@@ -79,10 +79,14 @@ function animate() {
 }
 
 function randomDirection(speed) {
-  let angle = Math.random() * Math.PI * 2;
-  let x = Math.cos(angle);
-  let y = Math.sin(angle);
+  let x = Math.random() * 2 - 1;
+  let y = Math.random() * 2 - 1;
   let length = Math.sqrt(x * x + y * y);
+  if (length === 0) {
+    x = 1;
+    y = 0;
+    length = 1;
+  }
   return { x: (x / length) * speed, y: (y / length) * speed };
 }
 
