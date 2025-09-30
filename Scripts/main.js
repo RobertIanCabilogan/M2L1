@@ -15,7 +15,7 @@ const geometry = new THREE.PlaneGeometry(2, 1);
 
 const tintColor = new THREE.Color(0xFFFFFF);
 
-//had to use ai uuuuuuu ;-;
+//had to use ai for this part  v UUUUUUUUUUUUUUUUUUUUUUU sorry sirrrr ;-;
 const material = new THREE.ShaderMaterial({
   uniforms: {
     map: { value: texture },
