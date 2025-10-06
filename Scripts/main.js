@@ -65,7 +65,7 @@ function animate() {
     velocity.y = dir.y;
     plane.position.x = Math.max(-boundX, Math.min(boundX, plane.position.x));
     material.uniforms.tint.value = getRandomColor();
-    plane.scale.multiplyScalar(0.8); 
+    //plane.scale.multiplyScalar(0.8); 
   }
   if (plane.position.y > boundY || plane.position.y < -boundY) {
     let dir = randomDirection(speed);
@@ -73,7 +73,7 @@ function animate() {
     velocity.y = dir.y;
     plane.position.y = Math.max(-boundY, Math.min(boundY, plane.position.y));
     material.uniforms.tint.value = getRandomColor();
-    plane.scale.multiplyScalar(0.8); 
+    //plane.scale.multiplyScalar(0.8); 
   }
   renderer.render(scene, camera);
 }
