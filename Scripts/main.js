@@ -50,8 +50,8 @@ const speed = 0.03;
 function animate() {
 
   renderer.render( scene, camera );
-  const boundX = 7; 
-  const boundY = 4;
+  const boundX = 8; 
+  const boundY = 3.8;
   plane.position.x += velocity.x;
   plane.position.y += velocity.y;
 
